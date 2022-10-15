@@ -1,0 +1,14 @@
+
+Put this under Printer Settings CUSTOM GCODE in the START-G-CODE Box
+
+  M104 S0 ; Stops PS/SS from sending temp waits separately
+  M140 S0
+  PRINT_START BED_TEMP=[first_layer_bed_temperature] EXTRUDER_TEMP={first_layer_temperature[initial_extruder]+extruder_temperature_offset[initial_extruder]}
+
+
+Put this under Printer Settings CUSTOM GCODE in the END-G-CODE Box
+
+  print_end    ;end script from macro
+  
+  
+These will call the Macros from client_macros.cfg.  You can add a CHAMBER_TEMP=[chamber_temperature]  If you plan on doing ABS and have a Chamber Sensor (Which the Ctrl-Pew kit came with) but with PLA it isn't needed.
